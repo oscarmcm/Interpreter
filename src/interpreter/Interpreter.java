@@ -5,17 +5,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 public class Interpreter {
     
     public static void main(String[] args) throws IOException {
         
-        InputStreamReader teclado = new  InputStreamReader(System.in);
-        BufferedReader lectura = new BufferedReader(teclado);
+        //InputStreamReader teclado = new  InputStreamReader(System.in);
+        //BufferedReader lectura = new BufferedReader(teclado);
         String roman;
         
-        System.out.println("Número Romano: ");
-        roman = lectura.readLine();
+        //System.out.println("Número Romano: ");
+        //roman = lectura.readLine();
+        roman = JOptionPane.showInputDialog(null, "Ingrese un numero Romano:");
 	Context context = new Context(roman);
 
 	      // Build the 'parse tree' 
@@ -32,6 +34,7 @@ public class Interpreter {
 	    	  exp.interpret(context);
 	      }
 
-	      System.out.println(roman + " = " + Integer.toString(context.getOutput()));
+	      //System.out.println(roman + " = " + Integer.toString(context.getOutput()));
+              JOptionPane.showMessageDialog(null, roman + " = " + Integer.toString(context.getOutput()));
 	}
 }
